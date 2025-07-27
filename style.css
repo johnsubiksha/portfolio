@@ -1,0 +1,842 @@
+/* Universal Box Sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Base Body Styles */
+body {
+    font-family: 'Inter', sans-serif; /* Using Inter font */
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light background */
+    color: #333;
+    line-height: 1.6;
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+/* Reusable Container */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #2c3e50; /* Darker blue for headings */
+}
+
+h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.8rem;
+    margin-bottom: 50px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px; /* Space for the underline effect */
+}
+
+h2::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background-color: #007bff; /* Primary accent color */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Links */
+a {
+    color: #007bff; /* Primary accent color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3; /* Darker accent on hover */
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 8px; /* Rounded corners for buttons */
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: #007bff; /* Primary button color */
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #007bff;
+    border: 2px solid #007bff;
+}
+
+.btn-secondary:hover {
+    background-color: #007bff;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.btn-sm {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+}
+
+.btn-github {
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-github:hover {
+    background-color: #555;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Header and Navigation */
+.header {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #4192e2;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: #555;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #007bff;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* Burger menu icon for mobile */
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1001; /* Ensure burger is above nav links when open */
+}
+
+.burger div {
+    width: 28px;
+    height: 3px;
+    background-color: #2c3e50;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80') no-repeat center center/cover;
+    padding: 80px 0;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.hero-content {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 2;
+    min-width: 300px;
+}
+
+.hero-text .greeting {
+    font-size: 1.2rem;
+    color: #e4e9f0;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.hero-text h1 {
+    font-size: 4.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-text .highlight {
+    color: #007bff;
+}
+
+.hero-text .tagline {
+    font-size: 1.4rem;
+    color: #e4e9f0;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+.social-icons {
+    margin-bottom: 30px;
+}
+
+.social-icons a {
+    font-size: 2.2rem;
+    color: #e4e9f0;
+    margin-right: 25px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+    transform: translateY(-3px);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+.hero-image img:hover {
+    transform: scale(1.03);
+}
+
+/* Section Common Styling */
+section {
+    padding: 80px 0;
+}
+
+section:nth-of-type(even) {
+    background-color: #eceff1; /* Slightly darker background for even sections */
+}
+
+/* About Section */
+.about-section {
+    text-align: center;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    text-align: left;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.about-text {
+    flex: 2;
+    min-width: 300px;
+    max-width: 700px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 25px;
+    justify-content: center;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.skill-item {
+    background-color: #fff;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.skill-item i {
+    font-size: 3.5rem;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.skill-item h3 {
+    font-size: 1.25rem;
+    color: #2c3e50;
+    margin-bottom: 0;
+}
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #eee;
+}
+
+.project-info {
+    padding: 25px;
+    text-align: left;
+    flex-grow: 1; /* Allow content to push buttons to bottom */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-info h3 {
+    font-size: 1.6rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.project-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Make description take available space */
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    margin-top: 15px;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: #f0f4f7;
+    text-align: center;
+}
+
+.contact-intro {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    text-align: left;
+}
+
+.contact-info, .contact-form-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.contact-info h3, .contact-form-container h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    color: #2c3e50;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.contact-info p i {
+    color: #007bff;
+    font-size: 1.4rem;
+}
+
+.contact-info .social-icons {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 0;
+}
+
+.contact-info .social-icons a {
+    color: #555;
+    margin: 0 15px;
+}
+
+.contact-info .social-icons a:hover {
+    color: #007bff;
+}
+
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.contact-form button {
+    align-self: flex-start; /* Align button to the left */
+}
+
+/* Footer */
+.footer {
+    background-color: #2c3e50; /* Dark footer */
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 50px;
+    font-size: 0.9rem;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* --- Achievements & Certifications Section --- */
+/* --- ACHIEVEMENTS & CERTIFICATIONS Section --- */
+.achievements-section {
+    padding: 80px 0;
+    background-color: var(--color-background-alt); /* Lighter background for contrast */
+    text-align: center;
+}
+
+.achievements-section h2 {
+    font-size: 2.8rem;
+    color: var(--color-heading);
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.achievements-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-primary); /* Your brand color */
+    border-radius: 2px;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Adjusted min-width for better cards */
+    gap: 30px;
+    margin-top: 30px;
+    justify-content: center; /* Centers cards if they don't fill a row */
+    align-items: stretch; /* Ensures cards in a row have equal height */
+}
+
+.achievement-item {
+    background-color: var(--color-card-background); /* White or light background for cards */
+    border-radius: 12px; /* Slightly more rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Softer, more prominent shadow */
+    padding: 35px; /* Increased padding */
+    text-align: left; /* Align text to the left within the card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--color-border); /* Subtle border */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligns content from the top */
+}
+
+.achievement-item:hover {
+    transform: translateY(-8px); /* More pronounced lift on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+.achievement-item .icon-container { /* New container for icon to control its spacing */
+    background-color: var(--color-primary-light); /* Light primary color background for icon */
+    color: var(--color-primary); /* Primary color for the icon */
+    width: 60px; /* Fixed width and height for a circular/square icon background */
+    height: 60px;
+    border-radius: 50%; /* Makes it circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem; /* Smaller icon inside circle */
+    margin-bottom: 25px; /* Spacing below the icon */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-item h3 {
+    font-size: 1.9rem; /* Slightly larger heading */
+    color: var(--color-heading);
+    margin-bottom: 8px; /* Closer to the institution name */
+    line-height: 1.3; /* Better readability for longer titles */
+}
+
+.achievement-item p.institution {
+    font-size: 1.05rem; /* Slightly larger for readability */
+    color: var(--color-text-light); /* Lighter text for subtitle */
+    margin-bottom: 18px; /* More space before description */
+    font-style: normal; /* Remove italic for cleaner look */
+    font-weight: 500; /* Slightly bolder */
+}
+
+.achievement-item p.description {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    line-height: 1.7; /* Increased line height for better readability */
+    margin-bottom: 0; /* Remove bottom margin */
+    flex-grow: 1; /* Allows description to take up available space, pushing links to bottom */
+}
+
+.achievement-item p.description a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.achievement-item p.description a:hover {
+    text-decoration: underline;
+    color: var(--color-primary-dark); /* Darker primary on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .achievements-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically on smaller screens */
+        gap: 25px;
+    }
+    .achievement-item {
+        padding: 30px;
+    }
+    .achievement-item h3 {
+        font-size: 1.7rem;
+    }
+    .achievement-item .icon-container {
+        font-size: 2.2rem;
+        width: 55px;
+        height: 55px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .achievements-section h2 {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+    .achievement-item {
+        padding: 25px;
+    }
+    .achievement-item h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 992px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    .hero-section {
+        padding: 60px 0;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        order: 2; /* Text below image on smaller screens */
+        text-align: center;
+    }
+
+    .hero-image {
+        order: 1; /* Image above text on smaller screens */
+        margin-bottom: 40px;
+    }
+
+    .hero-text .tagline {
+        font-size: 1.2rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .social-icons {
+        text-align: center;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image {
+        margin-bottom: 30px;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    .contact-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .contact-info, .contact-form-container {
+        max-width: 100%; /* Take full width */
+    }
+
+    .contact-info h3, .contact-form-container h3 {
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap; /* Allow logo and burger to wrap if needed */
+        justify-content: space-between;
+    }
+
+    .nav-links {
+        position: fixed;
+        right: 0;
+        top: 0; /* Align with header top */
+        height: 100vh;
+        width: 70%;
+        background-color: #2c3e50; /* Dark background for mobile nav */
+        flex-direction: column;
+        align-items: center;
+        transform: translateX(100%); /* Start off-screen */
+        transition: transform 0.5s ease-in-out;
+        padding-top: 80px; /* Space for logo/header */
+        box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+    }
+
+    .nav-links li {
+        opacity: 0; /* Hide links initially for animation */
+        margin: 15px 0;
+    }
+
+    .nav-links li a {
+        color: #fff; /* White links on dark background */
+        font-size: 1.3rem;
+    }
+
+    .burger {
+        display: flex; /* Show burger icon */
+    }
+
+    /* Active state for navigation */
+    .nav-active {
+        transform: translateX(0%); /* Slide in */
+    }
+
+    /* Burger animation */
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-6px, 6px);
+    }
+
+    .toggle .line2 {
+        opacity: 0;
+    }
+
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-6px, -6px);
+    }
+
+    /* Animation for nav links */
+    @keyframes navLinkFade {
+        from {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero-text .tagline {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .hero-image img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .social-icons a {
+        font-size: 1.8rem;
+        margin-right: 15px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .skill-item i {
+        font-size: 2.5rem;
+    }
+
+    .skill-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .project-card {
+        margin: 0 10px; /* Add some side margin for very small screens */
+    }
+}
